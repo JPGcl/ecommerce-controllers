@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Productos</h1>
+<div id="products" class="shadow-lg p-3 mb-5 bg-gray rounded">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Nombre del producto</th>
+        <th>Categoría</th>
+        <th>Descripción</th>
+        <th>Stock</th>
+        <th>Precio</th>
+        <th>SKU</th>
+        <th colspan="1">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <% @modo_tabla = true %>
+          <%= render product %>
+          <td><%= link_to "Ver", product %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<hr>
+<%= link_to "Nuevo producto", new_product_path %>

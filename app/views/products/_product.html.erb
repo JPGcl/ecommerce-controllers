@@ -1,0 +1,17 @@
+<div id="<%= dom_id product %>">
+	<% if @modo_tabla == true %>
+    <td><%= product.name %></td>
+    <td><%= product.categories.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.stock %></td>
+    <td><%= product.price %></td>
+    <td><%= product.sku %></td>
+	<% else %>
+    <td><strong>Nombre del producto :</strong><%= product.name %></td><br>
+    <td><strong>Categoría :</strong><%= product.categories.name %></td><br>
+    <td><strong>Descripción :</strong><%= product.description %></td><br>
+    <td><strong>Stock :</strong><%= product.stock %></td><br>
+    <td><strong>Precio :</strong><%= product.price %></td><br>
+    <td><strong>SKU :</strong><%= product.sku %></td><br>
+	<% end %>
+</div>

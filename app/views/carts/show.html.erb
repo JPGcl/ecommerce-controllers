@@ -1,0 +1,29 @@
+<% @order.order_items.includes(:product).each do |item| %>
+  <p>
+    <strong>Name:</strong>
+    <%= item.product.name %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= item.product.description %>
+  </p>
+  <p>
+    <strong>Categories:</strong>
+    <%= item.product.categories.name %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    <%= item.product.price %>
+  </p>
+  <p>
+    <strong>Cant:</strong>
+    <%= item.quantity %>
+  </p>
+  <p>
+    <%#= link_to "Show this product", product %>
+  </p>
+<% end %>
+<p>
+  <strong>Total:</strong>
+  <%= @order.total %>
+</p>

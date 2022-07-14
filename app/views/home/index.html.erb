@@ -1,0 +1,58 @@
+<div id="products" class="shadow-lg p-3 mb-5 bg-gray rounded">
+  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative">
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+
+      <% @products.each do |product| %>
+        <div class="col hp">
+          <div class="card h-100 shadow-lg">
+            <a href="#">
+              <img src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg" class="card-img-top" alt="product.title" />
+            </a>
+
+            <div class="label-top shadow-sm">
+              <a class="text-white" href="#"><%= product.name %></a>
+            </div>
+            <div class="card-body">
+              <div class="clearfix mb-3">
+                <span class="float-start badge rounded-pill bg-success">$<%= product.price %></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="badge rounded-pill bg-success">stock: <%= product.stock %></span>
+              </div>
+
+              <div class="clearfix mb-3">
+
+                <span class="float-end">
+                  <a href="#" class="small text-muted text-uppercase aff-link">comentarios</a>
+                </span>
+              </div>
+
+              <h5 class="card-title">
+                <a target="_blank" href="#"><%= product.description %></a>
+              </h5>
+
+              <div class="d-grid gap-2 my-4 btn btn-warning">
+                <%= form_for :cart, url: cart_path, method: :put do |f| %>
+                  <%= f.hidden_field :product_id, value: product.id %>
+                  <%= f.hidden_field :quantity, value: 1 %>
+                  <%= f.submit "Agregar al carro" , class: "btn-warning" %>
+                <% end %>
+              </div>
+
+              <div class="clearfix mb-1">
+                <span class="float-start">
+                  <a href="#"><i class="fas fa-question-circle"> <%= product.categories.name %></i></a> | 
+                  <%= link_to " Ver ", product, class: "fas fa-eye", style: "text-decoration: none;" %>
+                </span>
+
+                <span class="float-end">
+                  <i class="far fa-heart" style="cursor: pointer"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr>

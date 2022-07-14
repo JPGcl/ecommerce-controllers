@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light btn" style="background-color: #e3f2fd; text-decoration: none;">
+  <div>
+    <%= link_to "Inicio", root_path, style: "text-decoration: none;" %> |
+    <%= link_to "Productos", products_path, style: "text-decoration: none;" %>
+  </div>
+
+  <div>
+    <% if current_user %>
+      &nbsp;Hola <strong><%= current_user.email %>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, 'data-turbo-method': :delete %>
+    <% else %>
+      |&nbsp;&nbsp;&nbsp;
+      <%= link_to "Inicia sesión", new_user_session_path %>
+      <%= link_to "Registrarse", new_user_registration_path %>
+    <% end %>
+  </div>
+</nav>

@@ -1,0 +1,9 @@
+<h1>Editando el producto</h1>
+<div class="shadow-lg p-3 mb-5 bg-gray rounded">
+  <%= render "form", product: @product %>
+</div>
+<hr>
+<div>
+  <%= link_to "Ver", @product %> |
+  <%= link_to "Volver", products_path %>
+</div>
